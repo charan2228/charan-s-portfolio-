@@ -8,208 +8,126 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-
-body{
-background:#040404;
-color:white;
-scroll-behavior:smooth;
-overflow-x:hidden;
-}
+body{background:#040404;color:white;scroll-behavior:smooth;overflow-x:hidden}
 
 /* 🔥 NAVBAR */
 nav{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
+position:fixed;top:20px;left:50%;transform:translateX(-50%);
 background:rgba(0,0,0,0.35);
 backdrop-filter:blur(16px);
-padding:16px 40px;
-border-radius:40px;
-display:flex;
-gap:30px;
-z-index:1000;
+padding:16px 40px;border-radius:40px;
+display:flex;gap:30px;z-index:1000;
+box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
-
-nav a{
-color:white;
-text-decoration:none;
-letter-spacing:2px;
-font-size:13px;
-}
+nav a{color:white;text-decoration:none;letter-spacing:2px;font-size:13px}
 
 /* 🎬 HERO */
 .hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-background:url("images/waterfall.jpeg") center/cover fixed;
-position:relative;
+height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+background:url("images/waterfall.jpeg") center/cover fixed;position:relative
 }
-
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.7);
-}
-
-.hero-content{
-position:relative;
-z-index:1;
-}
-
-.hero h1{
-font-size:6rem;
-letter-spacing:14px;
-}
-
-.hero p{
-margin-top:20px;
-opacity:0.85;
-}
-
-/* SECTIONS */
-section{
-padding:140px 8%;
-}
-
-h2{
-letter-spacing:8px;
-margin-bottom:60px;
-text-align:center;
-}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7)}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-size:6rem;letter-spacing:14px}
+.hero p{margin-top:20px;opacity:0.85}
 
 /* 🧑‍🎨 ABOUT */
+section{padding:140px 8%}
+h2{letter-spacing:8px;margin-bottom:60px;text-align:center}
+
 .about-container{
-max-width:1100px;
-margin:auto;
-display:flex;
+max-width:1100px;margin:auto;
+display:flex;align-items:center;justify-content:center;gap:70px;
 flex-wrap:wrap;
-align-items:center;
-justify-content:center;
-gap:70px;
 }
 
 .about-container img{
-width:280px;
-height:280px;
-object-fit:cover;
+width:280px;height:280px;object-fit:cover;
 border-radius:50%;
-box-shadow:0 0 80px rgba(0,0,0,0.9);
+box-shadow:0 0 80px rgba(0,0,0,0.9)
 }
 
-.about-text{
-max-width:520px;
-line-height:1.9;
-opacity:0.9;
-}
+.about-text{max-width:520px;line-height:1.9;opacity:0.9}
 
-/* 📸 GRID */
+/* 🖼️ DOCUMENTED GRID */
 .doc-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns:repeat(2,1fr);
 gap:45px;
+align-items:center;
+}
+
+.doc-item{
+display:flex;
+flex-direction:column;
 }
 
 .doc-item img{
 width:100%;
 border-radius:18px;
 margin-bottom:15px;
-transition:0.5s;
+transition:0.5s
 }
 
-.doc-item img:hover{
-transform:scale(1.05);
-}
+.doc-item img:hover{transform:scale(1.05)}
+
+.doc-item h3{margin-bottom:10px}
+.doc-item p{opacity:0.8;line-height:1.7;font-size:0.95rem}
 
 /* ✨ PARALLAX */
 .parallax{
 height:60vh;
 background:url("images/clouds.jpeg") center/cover fixed;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
+display:flex;align-items:center;justify-content:center;text-align:center
 }
-
 .parallax h2{
 font-size:3rem;
 letter-spacing:10px;
 background:rgba(0,0,0,0.6);
-padding:20px 40px;
-border-radius:10px;
+padding:20px 40px;border-radius:10px
 }
 
 /* 📞 CONTACT */
-.contact{
-text-align:center;
-font-size:18px;
-}
-
-.contact a{
-color:#ffcc70;
-text-decoration:none;
-display:block;
-margin-top:12px;
-}
+.contact{text-align:center;font-size:18px}
+.contact a{color:#ffcc70;text-decoration:none;display:block;margin-top:12px}
 
 /* FOOTER */
-footer{
-text-align:center;
-padding:50px;
-background:#000;
-opacity:0.7;
-}
+footer{text-align:center;padding:50px;background:#000;opacity:0.7}
+
 
 /* 📱 MOBILE RESPONSIVE */
 
-@media (max-width: 900px){
+@media (max-width:900px){
 
-.hero h1{
-font-size:3rem;
-letter-spacing:6px;
-}
+.hero h1{font-size:3rem;letter-spacing:6px}
+.hero p{font-size:14px}
 
-.hero p{
-font-size:14px;
-}
+nav{padding:12px 20px;gap:15px}
+nav a{font-size:11px}
 
-nav{
-padding:12px 20px;
-gap:15px;
-}
+section{padding:90px 6%}
 
-nav a{
-font-size:11px;
-}
-
+/* ABOUT STACK */
 .about-container{
 flex-direction:column;
 text-align:center;
 }
 
 .about-container img{
-width:200px;
-height:200px;
+width:200px;height:200px
 }
 
-section{
-padding:90px 6%;
-}
-
+/* GRID → SINGLE COLUMN */
 .doc-grid{
 grid-template-columns:1fr;
 }
 
+/* PARALLAX TEXT */
 .parallax h2{
 font-size:2rem;
-letter-spacing:5px;
-padding:15px 25px;
+letter-spacing:6px;
+padding:15px 25px
 }
 
 }
@@ -238,25 +156,17 @@ padding:15px 25px;
 <!-- ABOUT -->
 <section id="about">
 <h2>ABOUT ME</h2>
-
 <div class="about-container">
-
 <img src="images/myphoto.jpg" alt="Sai Sri Charan">
-
 <div class="about-text">
 <p>
-I’m <b>Sai Sri Charan Yerramsetty</b>, a street and event photographer based in Hyderabad.
-My work captures cinematic urban life — rain, rituals, motion, and silence within chaos.
+I’m <b>Sai Sri Charan Yerramsetty</b>, a street and event photographer based in Hyderabad. My work captures cinematic urban life — rain, rituals, motion, and silence within chaos.
 </p>
-
 <br>
-
 <p>
-Through <b>Capturin Art</b>, I document the city as a living narrative,
-blending atmosphere, emotion, and movement into frames that feel alive.
+Through <b>Capturin Art</b>, I document the city as a living narrative, blending atmosphere, emotion, and movement into frames that feel alive.
 </p>
 </div>
-
 </div>
 </section>
 
@@ -264,7 +174,6 @@ blending atmosphere, emotion, and movement into frames that feel alive.
 <section id="streets">
 <h2>STREET STORIES</h2>
 <div class="doc-grid">
-
 <div class="doc-item">
 <img src="images/lamakan.jpeg">
 <h3>Rain & Rush</h3>
@@ -276,7 +185,6 @@ blending atmosphere, emotion, and movement into frames that feel alive.
 <h3>Journey Lines</h3>
 <p>A solitary road symbolizing distance and motion.</p>
 </div>
-
 </div>
 </section>
 
@@ -289,7 +197,6 @@ blending atmosphere, emotion, and movement into frames that feel alive.
 <section id="events">
 <h2>RITUALS & CELEBRATIONS</h2>
 <div class="doc-grid">
-
 <div class="doc-item">
 <img src="images/sankranti.jpeg">
 <h3>Festival Energy</h3>
@@ -301,7 +208,6 @@ blending atmosphere, emotion, and movement into frames that feel alive.
 <h3>Sacred Flames</h3>
 <p>Spiritual heartbeat of the city.</p>
 </div>
-
 </div>
 </section>
 
@@ -309,32 +215,22 @@ blending atmosphere, emotion, and movement into frames that feel alive.
 <section id="urban">
 <h2>URBAN QUIET</h2>
 <div class="doc-grid">
-
 <div class="doc-item">
 <img src="images/hoppery.jpeg">
 <h3>Pause</h3>
 <p>Stillness within motion.</p>
 </div>
-
 </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
 <h2>CONTACT</h2>
-
 <div class="contact">
 <p>Hyderabad, India</p>
-
-<a href="https://instagram.com/capturin_art" target="_blank">
-Instagram — @capturin_art
-</a>
-
-<a href="mailto:yourmail@gmail.com">
-Email — yourmail@gmail.com
-</a>
+<a href="https://instagram.com/capturin_art" target="_blank">Instagram — @capturin_art</a>
+<a href="mailto:yourmail@gmail.com">Email — yourmail@gmail.com</a>
 </div>
-
 </section>
 
 <footer>
@@ -343,4 +239,3 @@ Email — yourmail@gmail.com
 
 </body>
 </html>
-
