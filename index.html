@@ -11,7 +11,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 body{background:#040404;color:white;scroll-behavior:smooth;overflow-x:hidden}
 
-/* 🔥 NAVBAR */
+/* 🔥 CINEMATIC NAVBAR */
 nav{
 position:fixed;top:20px;left:50%;transform:translateX(-50%);
 background:rgba(0,0,0,0.35);
@@ -20,7 +20,9 @@ padding:16px 40px;border-radius:40px;
 display:flex;gap:30px;z-index:1000;
 box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
-nav a{color:white;text-decoration:none;letter-spacing:2px;font-size:13px}
+nav a{color:white;text-decoration:none;letter-spacing:2px;font-size:13px;position:relative}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:#ffcc70;transition:0.4s}
+nav a:hover::after{width:100%}
 
 /* 🎬 HERO */
 .hero{
@@ -28,9 +30,11 @@ height:100vh;display:flex;align-items:center;justify-content:center;text-align:c
 background:url("images/waterfall.jpeg") center/cover fixed;position:relative
 }
 .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7)}
-.hero-content{position:relative;z-index:1}
+.hero-content{position:relative;z-index:1;animation:fadeUp 1.5s ease}
 .hero h1{font-size:6rem;letter-spacing:14px}
 .hero p{margin-top:20px;opacity:0.85}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(50px)}to{opacity:1}}
 
 /* 🧑‍🎨 ABOUT */
 section{padding:140px 8%}
@@ -38,13 +42,11 @@ h2{letter-spacing:8px;margin-bottom:60px;text-align:center}
 
 .about-container{
 max-width:1100px;margin:auto;
-display:flex;align-items:center;justify-content:center;gap:70px;
-flex-wrap:wrap;
+display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:70px
 }
 
 .about-container img{
-width:280px;height:280px;object-fit:cover;
-border-radius:50%;
+width:280px;height:280px;object-fit:cover;border-radius:50%;
 box-shadow:0 0 80px rgba(0,0,0,0.9)
 }
 
@@ -53,14 +55,8 @@ box-shadow:0 0 80px rgba(0,0,0,0.9)
 /* 🖼️ DOCUMENTED GRID */
 .doc-grid{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:45px;
-align-items:center;
-}
-
-.doc-item{
-display:flex;
-flex-direction:column;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:45px
 }
 
 .doc-item img{
@@ -75,7 +71,7 @@ transition:0.5s
 .doc-item h3{margin-bottom:10px}
 .doc-item p{opacity:0.8;line-height:1.7;font-size:0.95rem}
 
-/* ✨ PARALLAX */
+/* ✨ PARALLAX BREAK */
 .parallax{
 height:60vh;
 background:url("images/clouds.jpeg") center/cover fixed;
@@ -95,8 +91,13 @@ padding:20px 40px;border-radius:10px
 /* FOOTER */
 footer{text-align:center;padding:50px;background:#000;opacity:0.7}
 
+/* 🖱️ CUSTOM CURSOR */
+.cursor{
+width:20px;height:20px;border:2px solid #ffcc70;border-radius:50%;
+position:fixed;pointer-events:none;z-index:3000
+}
 
-/* 📱 MOBILE RESPONSIVE */
+/* 📱 MOBILE FIX — ONLY ADDITION */
 
 @media (max-width:900px){
 
@@ -108,7 +109,7 @@ nav a{font-size:11px}
 
 section{padding:90px 6%}
 
-/* ABOUT STACK */
+/* STACK ABOUT */
 .about-container{
 flex-direction:column;
 text-align:center;
@@ -118,12 +119,12 @@ text-align:center;
 width:200px;height:200px
 }
 
-/* GRID → SINGLE COLUMN */
+/* STACK GRID */
 .doc-grid{
-grid-template-columns:1fr;
+grid-template-columns:1fr
 }
 
-/* PARALLAX TEXT */
+/* SMALL PARALLAX TEXT */
 .parallax h2{
 font-size:2rem;
 letter-spacing:6px;
@@ -136,6 +137,8 @@ padding:15px 25px
 </head>
 
 <body>
+
+<div class="cursor" id="cursor"></div>
 
 <nav>
 <a href="#about">About</a>
@@ -160,11 +163,7 @@ padding:15px 25px
 <img src="images/myphoto.jpg" alt="Sai Sri Charan">
 <div class="about-text">
 <p>
-I’m <b>Sai Sri Charan Yerramsetty</b>, a street and event photographer based in Hyderabad. My work captures cinematic urban life — rain, rituals, motion, and silence within chaos.
-</p>
-<br>
-<p>
-Through <b>Capturin Art</b>, I document the city as a living narrative, blending atmosphere, emotion, and movement into frames that feel alive.
+I’m <b>Sai Sri Charan Yerramsetty</b>, a street and event photographer based in Hyderabad.
 </p>
 </div>
 </div>
@@ -193,49 +192,26 @@ Through <b>Capturin Art</b>, I document the city as a living narrative, blending
 <h2>CITY STORIES</h2>
 </section>
 
-<!-- EVENTS -->
-<section id="events">
-<h2>RITUALS & CELEBRATIONS</h2>
-<div class="doc-grid">
-<div class="doc-item">
-<img src="images/sankranti.jpeg">
-<h3>Festival Energy</h3>
-<p>Tradition and collective joy.</p>
-</div>
-
-<div class="doc-item">
-<img src="images/pooja.jpeg">
-<h3>Sacred Flames</h3>
-<p>Spiritual heartbeat of the city.</p>
-</div>
-</div>
-</section>
-
-<!-- URBAN -->
-<section id="urban">
-<h2>URBAN QUIET</h2>
-<div class="doc-grid">
-<div class="doc-item">
-<img src="images/hoppery.jpeg">
-<h3>Pause</h3>
-<p>Stillness within motion.</p>
-</div>
-</div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact">
 <h2>CONTACT</h2>
 <div class="contact">
 <p>Hyderabad, India</p>
 <a href="https://instagram.com/capturin_art" target="_blank">Instagram — @capturin_art</a>
-<a href="mailto:yourmail@gmail.com">Email — yourmail@gmail.com</a>
 </div>
 </section>
 
 <footer>
 © 2026 Sai Sri Charan — Capturin Art
 </footer>
+
+<script>
+const cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',e=>{
+cursor.style.top=e.clientY+'px';
+cursor.style.left=e.clientX+'px';
+});
+</script>
 
 </body>
 </html>
